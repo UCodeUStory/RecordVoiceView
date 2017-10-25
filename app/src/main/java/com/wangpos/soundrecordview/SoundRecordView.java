@@ -43,11 +43,12 @@ public class SoundRecordView extends View {
 
     private float lineSize = 0.5f;
 
-    private int waveColor = 0xff6da8ff;
+//    private int waveColor = 0xff6da8ff;
 
+    private int waveColor = 0xffffffff;
 //    private int waveColor = 0xffffffff;
 
-    private float waveWidth = 0.8f;
+    private float waveWidth = 1.5f;
 
     private float space = 0f;
 
@@ -132,10 +133,6 @@ public class SoundRecordView extends View {
         @Override
         public void run() {
 
-//            int value = new Random().nextInt(110);
-//            if (value < 5) {
-//                value = 5;
-//            }
 
             startIndex = startIndex-1;
             if (startIndex>0) {
@@ -220,7 +217,7 @@ public class SoundRecordView extends View {
     }
 
     private void init(Context context) {
-        setBackgroundColor(0xff0C182C);
+        setBackgroundColor(Color.BLACK);
 //        setBackgroundColor(0xffF4F5F9);
         this.lineSize = dip2px(getContext(),0.5f);
 
@@ -306,6 +303,10 @@ public class SoundRecordView extends View {
     private int index = 0;
 
     int startSize = 0;
+
+    private int addZeroCount = 0;
+
+    private long ss = 0;
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -426,7 +427,10 @@ public class SoundRecordView extends View {
         }
     }
 
-
+    /**
+     * 绘制第二段mark
+     * @param canvas
+     */
     private void drawTopMark(Canvas canvas) {
         mMarkPaint.setColor(0xffffffff);
         canvas.drawRect(new RectF(0,0,mWidth,bottomLine),mMarkPaint);
@@ -437,6 +441,11 @@ public class SoundRecordView extends View {
 
         }
     }
+
+    /**
+     * 绘制第二段mark
+     * @param canvas
+     */
     private void drawTopMark2(Canvas canvas) {
         mMarkPaint.setColor(0xffffffff);
         canvas.drawRect(new RectF(0,0,mWidth,bottomLine),mMarkPaint);
@@ -506,18 +515,23 @@ public class SoundRecordView extends View {
     }
 
 
-    private int addZeroCount = 0;
 
-    private long ss = 0;
+
+    /**
+     * 设置分贝
+     * @param decibel
+     */
     public void setDecibel(double decibel) {
 //        this.mDecibel = (int)decibel;
 
-
         this.mDecibel = (int)getValue(decibel);
-
-//        Log.i("qiyue","setDecibel="+decibel+"start>>>>>>>>>>==="+System.currentTimeMillis());
         ss = System.currentTimeMillis();
-        if ((waveLines.size()- addZeroCount*3)%5 == 0){//一次性添加
+        int max=20;
+        int min=3;
+        Random random = new Random();
+        int s = random.nextInt(max)%(max-min+1) + min;
+
+        if ((waveLines.size()- addZeroCount*3)%s == 0){//一次性添加
             long start = System.currentTimeMillis();
             waveLines.add(0, 0);
             startWaveLines.add(0);
@@ -564,8 +578,8 @@ public class SoundRecordView extends View {
         /**
          * 这个高度换机器要做适配
          */
-        if (y>130){
-            y = 130;
+        if (y>dip2px(this.getContext(),130)){
+            y = dip2px(this.getContext(),130);
         }
         return y;
     }
