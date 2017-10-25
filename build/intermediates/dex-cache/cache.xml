@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-compat/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-26.0.0-alpha1_f6479aac2d02e9941854eae7335ee982d1281a2c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-26.0.0-alpha1_25cab81e9de90281d60c11d60a7eb5a55eae98d0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/26.0.0-alpha1/support-annotations-26.0.0-alpha1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="023ee503b631f69511e335a061ea008f8da60f40">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/support-annotations-26.0.0-alpha1_63843ba97ecb61b0754ca1afed53fb718f75c3c8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-fragment/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-26.0.0-alpha1_9df529c5dcbf8d81ffd6fcdf691fe3ccf8462cbe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-26.0.0-alpha1_0358068a6c5f19dfa10b8c407a5c75376e50b7b8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-26.0.0-alpha1_58744d4f56b5db00185bb20d7dff8cca5e2b4093.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-v4/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-26.0.0-alpha1_a706132e5e49fbd5d8c97a84b0bef9d59bf4eb93.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-26.0.0-alpha1_3976535c28e0ac6d6c3b3d35204c78c84ac9d8c0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-26.0.0-alpha1_c7601c2a9fa4b507bc73017e8aab5789509e1328.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-26.0.0-alpha1_60aa6933e8ce7040dc1bcc1f629b85991bc8bb48.jar" />
+    </item>
+
+</items>
