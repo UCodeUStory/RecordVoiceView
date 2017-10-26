@@ -1,3 +1,3 @@
 # 录音波纹控件
 
-<iframe height=498 width=510 src="https://github.com/UCodeUStory/RecordVoiceView/blob/master/rvv.gif">
+<img src="https://github.com/UCodeUStory/RecordVoiceView/blob/master/rvv.gif" width="320x">
