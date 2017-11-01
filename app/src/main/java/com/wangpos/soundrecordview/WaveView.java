@@ -1,6 +1,7 @@
 package com.wangpos.soundrecordview;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -19,16 +20,15 @@ import java.util.List;
  */
 public class WaveView extends View {
 
-    private int MAX_LENGTH = 300;
+    private int MAX_LENGTH = 0;
 
     private Paint paint;
     private Path path;
 
-    private int color;
 
     private Paint bgPaint;
 
-    private int MAX_WAVE_HEIGHT = 150;
+    private int MAX_WAVE_HEIGHT = 0;
 
 
     private int v = 6;
@@ -41,24 +41,45 @@ public class WaveView extends View {
      */
     private List<WavePoint> waveList = new ArrayList<>();
 
+    private int color;
+
     public WaveView(Context context) {
-        super(context);
+        this(context,null);
         init(context);
     }
 
     public WaveView(Context context, AttributeSet attrs) {
-        super(context, attrs);
+        this(context, attrs,0);
         init(context);
     }
 
     public WaveView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
+
+
+        TypedArray ta = context.obtainStyledAttributes(attrs, R.styleable.WaveView);
+
+        MAX_LENGTH = (int)ta.getDimension(R.styleable.WaveView_wavelength,200);
+
+        color = ta.getColor(R.styleable.WaveView_color,Color.argb(255,78,143,136));
+
+        MAX_WAVE_HEIGHT = MAX_LENGTH/2;
+
+        Log.i("tt","MAX_LENGTH="+MAX_LENGTH);
+
+        ta.recycle();
+
+
+
+
+
         init(context);
     }
 
     private void init(Context context) {
         paint = new Paint();
-        this.color = Color.BLACK;
+//        this.color = Color.BLACK;
         paint.setColor(color);
         paint.setStyle(Paint.Style.FILL);
         paint.setStrokeWidth(3);
@@ -66,8 +87,8 @@ public class WaveView extends View {
 
 
         bgPaint = new Paint();
-        this.color = Color.BLACK;
-        bgPaint.setColor(color);
+//        this.color = Color.BLACK;
+        bgPaint.setColor(Color.BLACK);
         bgPaint.setStyle(Paint.Style.FILL);
         bgPaint.setStrokeWidth(10);
         bgPaint.setAntiAlias(true);
@@ -91,11 +112,11 @@ public class WaveView extends View {
         super.onDraw(canvas);
         Log.i("tt","onDraw");
 //
-        bgPaint.setColor(Color.argb(255,71,155,172));
-        canvas.drawRect(new RectF(0,0,getWidth(),getHeight()/2),bgPaint);
+//        bgPaint.setColor(Color.argb(255,71,155,172));
+//        canvas.drawRect(new RectF(0,0,getWidth(),getHeight()/2),bgPaint);
 
 
-        paint.setColor(Color.argb(255,78,143,136));
+//        paint.setColor(Color.argb(255,78,143,136));
         path.reset();
 
         path.moveTo(0, getHeight() / 2);
@@ -373,5 +394,22 @@ public class WaveView extends View {
         public String toString() {
             return " ax="+aX+ " aY="+aY+" bX="+bX+" bY="+bY+" cX="+cX+" cY="+cY;
         }
+    }
+
+
+    /**
+     * 根据手机的分辨率从 dp 的单位 转成为 px(像素)
+     */
+    public static float dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return  (dpValue * scale + 0.5f);
+    }
+
+    /**
+     * 根据手机的分辨率从 px(像素) 的单位 转成为 dp
+     */
+    public static int px2dip(Context context, float pxValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
     }
 }

@@ -12,12 +12,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/jars/classes.jar"
+        jar="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/26.0.0-alpha1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.1"
-        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
-        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-26.0.0-alpha1_25cab81e9de90281d60c11d60a7eb5a55eae98d0.jar" />
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-26.0.0-alpha1_22e1aab44443f104bbe159b202947367932ff598.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="9935891f23923f39d002087085d9696568a9f657">
+        <dex dex="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/pre-dexed/debug/com.android.support-support-media-compat-26.0.0-alpha1_4e5d9d511d8761060ac00ab130f35444e9249440.jar" />
     </item>
     <item
         is-multidex="false"
@@ -30,30 +39,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-fragment/26.0.0-alpha1/jars/classes.jar"
+        jar="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/exploded-aar/com.android.support/support-v4/26.0.0-alpha1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.1"
-        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
-        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-26.0.0-alpha1_9df529c5dcbf8d81ffd6fcdf691fe3ccf8462cbe.jar" />
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-26.0.0-alpha1_45d0a7268da903e7de36be8c78ff2f5e0407221f.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/26.0.0-alpha1/jars/classes.jar"
+        jar="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.1"
-        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
-        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-26.0.0-alpha1_0358068a6c5f19dfa10b8c407a5c75376e50b7b8.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/26.0.0-alpha1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
-        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-26.0.0-alpha1_58744d4f56b5db00185bb20d7dff8cca5e2b4093.jar" />
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-26.0.0-alpha1_29d84f0a9840d8b97f2baf0b92ea13b06448a396.jar" />
     </item>
     <item
         is-multidex="false"
@@ -75,6 +75,87 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-26.0.0-alpha1_60aa6933e8ce7040dc1bcc1f629b85991bc8bb48.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="47471eb19df288158b00b8d9cfa41bce7373f5cc">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-26.0.0-alpha1_25cab81e9de90281d60c11d60a7eb5a55eae98d0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="952944218ecedea1554a513dec0c14d570642843">
+        <dex dex="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/pre-dexed/debug/com.android.support-support-vector-drawable-26.0.0-alpha1_95d8f68a751ba24832df044eca896418f0ef8b66.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/exploded-aar/com.android.support/support-fragment/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-26.0.0-alpha1_1e1bcd8a75f8a574da0ea2b41983e8f923d39921.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/exploded-aar/com.android.support/support-compat/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="8df0e365e40beb151bc42dee20817721a6cab7b0">
+        <dex dex="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/pre-dexed/debug/com.android.support-support-compat-26.0.0-alpha1_092aeb5b0d0bd55c74a2565deee9b3b2450153a8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-fragment/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="18d31838aa4fcc768a8a0516e22cc13b94655d89">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-fragment-26.0.0-alpha1_9df529c5dcbf8d81ffd6fcdf691fe3ccf8462cbe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-26.0.0-alpha1_929a575369314f794cdf9a633247326aa9df21b5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="fcd01fd11233459f546c437ec927e9b61bf7caf1">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-ui-26.0.0-alpha1_0358068a6c5f19dfa10b8c407a5c75376e50b7b8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/26.0.0-alpha1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-26.0.0-alpha1_58744d4f56b5db00185bb20d7dff8cca5e2b4093.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/26.0.0-alpha1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -84,12 +165,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/26.0.0-alpha1/jars/classes.jar"
+        jar="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/26.0.0-alpha1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.1"
-        sha1="88246166d5afb106f532f6e6deae683c66b42c89">
-        <dex dex="/Users/qiyue/AndroidStudioProjects/SoundRecordView/app/build/intermediates/pre-dexed/debug/com.android.support-animated-vector-drawable-26.0.0-alpha1_60aa6933e8ce7040dc1bcc1f629b85991bc8bb48.jar" />
+        sha1="2e92aa0163544a804a0b34f169ca61801770839a">
+        <dex dex="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/pre-dexed/debug/com.android.support-support-core-utils-26.0.0-alpha1_8ec7954f47c1a35bdd0fda49c05cea2e772d22e8.jar" />
     </item>
 
 </items>
