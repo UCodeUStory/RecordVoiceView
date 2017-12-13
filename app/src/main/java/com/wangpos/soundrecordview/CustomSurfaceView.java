@@ -1,4 +1,4 @@
-package com.chinajesit.recordview.widget;
+package com.wangpos.soundrecordview;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,9 +8,6 @@ import android.view.SurfaceView;
 
 import java.lang.ref.WeakReference;
 
-/**
- * Created by Allen on 2017/9/18.
- */
 
 public abstract class CustomSurfaceView extends SurfaceView implements SurfaceHolder.Callback {
 
@@ -105,7 +102,7 @@ public abstract class CustomSurfaceView extends SurfaceView implements SurfaceHo
                     if (isRun) {
                         if (getSurfaceHolder() != null) {
                             Canvas canvas = getSurfaceHolder().lockCanvas();
-                            getCustomSurfaceView().drawContent(canvas,System.currentTimeMillis() - startAt);
+                            getCustomSurfaceView().drawContent(canvas, System.currentTimeMillis() - startAt);
                             getSurfaceHolder().unlockCanvasAndPost(canvas);//提交
                         } else {
                             isRun = false;
@@ -121,7 +118,7 @@ public abstract class CustomSurfaceView extends SurfaceView implements SurfaceHo
         }
     }
 
-    public void drawContent(Canvas canvas,long millisPassed) {
+    public void drawContent(Canvas canvas, long millisPassed) {
 
     }
 
@@ -139,7 +136,6 @@ public abstract class CustomSurfaceView extends SurfaceView implements SurfaceHo
     }
 
 
-    //假暂停，并没有结束Thread
     public void onPause(){
         synchronized (lock){
             if (mThread != null) {

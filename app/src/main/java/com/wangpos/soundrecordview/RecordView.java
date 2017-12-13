@@ -1,4 +1,4 @@
-package com.chinajesit.recordview.widget;
+package com.wangpos.soundrecordview;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,7 +7,9 @@ import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,19 +25,34 @@ public class RecordView extends CustomSurfaceView {
     //背景色
     private int mBgColor = Color.WHITE;
     //波浪颜色
-    private int mLineColor = Color.parseColor("#00CED1");
+    private int mLineColor = Color.parseColor("#FF0000");
     //主要线宽
     private int mMainWidth = 7;
-    //辅助线宽
-    private int mSubWidth = 2;
 
-    //内容区域的Size
-    private int mWidth;
+
     private int mHeight;
-    private int mCenterY;
 
-    //四条线的高度系数
-    private float[] linesFunc = new float[]{0.5f};
+    private int mWidth;
+
+    private float mCenterY;
+
+    /**
+     * 点数
+     */
+    private int pointSize = 180;
+    /**
+     * 声音分贝数
+     */
+    private float volume = 1;
+
+    /**
+     * 振幅系数
+     */
+
+    private float shakeRatio = 3f;
+
+    //保存4条线的Y坐标
+    Map<Float, float[]> linesY = new HashMap<>();
 
     public RecordView(Context context) {
         this(context, null);
@@ -77,15 +94,7 @@ public class RecordView extends CustomSurfaceView {
         drawLine(canvas);
     }
 
-    //取样点
-    private int samplingSize = 2;
-    private float[] samplingX;
-    private float[] samplingY;
-    private float shakeFunc;//衰退系数
 
-    private int volume = 0;//音量
-    //保存4条线的Y坐标
-    Map<Float, float[]> linesY = new HashMap<>();
 
     /**
      * 初始化参数以及计算出点的位置
@@ -97,41 +106,49 @@ public class RecordView extends CustomSurfaceView {
 
         //根据时间偏移
         float offset = millisPassed / 100f;
-        Log.i("qiyue", "offset=" + offset);
-        linesY.clear();
-
+        points.clear();
         mWidth = canvas.getWidth();
         mHeight = canvas.getHeight();
         mCenterY = mHeight / 2;
+        float dx = (float) mWidth / (pointSize - 1);// 必须为float，否则丢失
+        Log.i("qiyue", "dx = " + dx + "offset=" + offset);
+        for (int i = 0; i < pointSize; i++) {
 
-        samplingX = new float[samplingSize + 1];
+            float y;
+            float x = dx * i;
+            float adapterShakeParam;
 
-        //点之间距离
-        float dx = mWidth / (float) samplingSize;
+            adapterShakeParam = convergenFunction(i);
+            Log.i("qiyue","adapterShakeParam="+adapterShakeParam);
 
-        Log.i("qiyue", "dx=" + dx);
+            y = calculateY(x, offset,adapterShakeParam,shakeRatio);
 
-        for (float lineFunc : linesFunc) {
-            samplingY = new float[samplingSize + 1];
-            for (int i = 0; i <= samplingSize; i++) {
-                float x = i * dx;
-                samplingX[i] = x;
-                if (i < samplingSize / 2) {
-                    // 增加 0
-                    shakeFunc = i;
-                } else {
-                    // 减少 1 0
-                    shakeFunc = samplingSize - i;
-                }
 
-                samplingY[i] = calculateY(x, offset, shakeFunc * lineFunc);
-
-                Log.i("qiyue", "samplingY=" + samplingY);
-            }
-            linesY.put(lineFunc, samplingY);
+            points.add(new Point(x, y));
         }
+
     }
 
+    /**
+     * 收敛函数  这个函数可以用一个二次函数，效果更好
+     * @param i
+     * @return
+     */
+    private float convergenFunction(int i) {
+        float adapterShakeParam;
+        if (i < pointSize / 2) {
+            // 增加 0
+            adapterShakeParam = i;
+        } else {
+            // 减少 1 0
+            adapterShakeParam = pointSize - i;
+        }
+        return adapterShakeParam;
+    }
+
+    /**
+     * 想让每个点成sin周期性变化,把x坐标当成角度，
+     */
     /**
      * 画线
      *
@@ -139,18 +156,14 @@ public class RecordView extends CustomSurfaceView {
      */
     private void drawLine(Canvas canvas) {
         canvas.drawColor(mBgColor);
-        for (int j = 0; j < linesFunc.length; j++) {
-            float lineFunc = linesFunc[j];
-            float[] yAxis = linesY.get(lineFunc);
-            for (int i = 1; i <= samplingSize; i++) {
-                if (j == 0) {
-                    mMainPaint.setStrokeWidth(mMainWidth);
-                } else {
-                    mMainPaint.setStrokeWidth(mSubWidth);
-                }
-                canvas.drawLine(samplingX[i - 1], yAxis[i - 1], samplingX[i], yAxis[i], mMainPaint);
-            }
+        Log.i("qiyue", "drawLine");
+        for (int i = 1; i < pointSize; i++) {
+            Point p1 = points.get(i - 1);
+            Point p2 = points.get(i);
+            Log.i("qiyue", "p1=" + p1);
+            canvas.drawLine(p1.x, p1.y, p2.x, p2.y, mMainPaint);
         }
+
     }
 
     @Override
@@ -181,40 +194,66 @@ public class RecordView extends CustomSurfaceView {
         }
     }
 
+
     /**
      * 计算Y轴坐标
      *
      * @param x
-     * @param offset    偏移量
-     * @param shakeFunc 衰减系数
+     * @param offset 偏移量
      * @return
      */
-    private float calculateY(float x, float offset, float shakeFunc) {
-        double rad = degreeToRad(x);
-        Log.i("rad", "rad=" + rad + "x="+x);
-        float volumeFunc = (volume + 10) / 30f;
+    private float calculateY(float x, float offset,float adapterShakeParam,float shakeRatio) {
 
-        //Math.sin(x)    -1   0   1
-        double h = Math.sin(rad + offset) * 300;
+        /**
+         * 弧度取值范围 0 2π
+         */
+        double rad = Math.toRadians(x);
 
-        Log.i("qiyue", "h=" + h +"********"+Math.sin(rad + offset));
+        double fx = Math.sin(rad + offset);
 
-        float shake = shakeFunc / (float) samplingSize;
+        float dy = (float) (fx);
 
-        // 0 0.25 0
-        Log.i("shake", "shake=" + shake);
+        float calculateVolume = getCalculateVolume();
 
-        return (float) (mCenterY - Math.sin(x + offset) * 300 * volumeFunc * shake);
+        float finalDy = dy * adapterShakeParam * shakeRatio * calculateVolume;
+
+        return (float) (mCenterY - finalDy);
 
     }
 
     /**
-     * 角度换弧度
-     *
-     * @param degree
+     * 声音分贝计算
      * @return
      */
-    private double degreeToRad(double degree) {
-        return degree * Math.PI / 180;
+    private float getCalculateVolume() {
+        return (volume + 10) / 20f;
     }
+
+    private List<Point> points = new ArrayList<>();
+
+    /**
+     * 绘制点Bean
+     */
+    class Point {
+        @Override
+        public String toString() {
+            return "Point{" +
+                    "x=" + x +
+                    ", y=" + y +
+                    '}';
+        }
+
+        public float x;
+        public float y;
+
+        public Point(float x, float y) {
+            this.x = x;
+            this.y = y;
+        }
+
+    }
+
+
+
+
 }

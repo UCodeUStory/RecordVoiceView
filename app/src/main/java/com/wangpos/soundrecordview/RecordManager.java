@@ -1,4 +1,4 @@
-package com.chinajesit.recordview.widget;
+package com.wangpos.soundrecordview;
 
 import android.media.MediaRecorder;
 import android.os.Handler;
@@ -8,9 +8,6 @@ import android.util.Log;
 import java.io.File;
 import java.io.IOException;
 
-/**
- * Created by Allen on 2017/9/18.
- */
 
 public class RecordManager {
     private final String TAG = "RecordManager";

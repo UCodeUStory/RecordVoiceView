@@ -39,6 +39,24 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/qiyue/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_3b83d67af2b112c26f75f93a14ad3bb7a4814e9a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/exploded-aar/com.android.support.constraint/constraint-layout/1.0.2/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/pre-dexed/debug/com.android.support.constraint-constraint-layout-1.0.2_4f3c35e382bf87cddcfa506ded7f07aa099a8fdf.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/qiyue/GitProject/RecordVoiceView/app/build/intermediates/exploded-aar/com.android.support/support-v4/26.0.0-alpha1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
