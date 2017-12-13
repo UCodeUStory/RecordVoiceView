@@ -3,24 +3,28 @@ package com.wangpos.soundrecordview;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
 
 import android.view.View;
 
 
 import com.wangpos.soundrecordview.View.RecordView;
+import com.wangpos.soundrecordview.View.RecordViewLine;
 
 import java.io.File;
 
-public class Record2Activity extends AppCompatActivity {
+public class RecordLineActivity extends AppCompatActivity {
 
-    private RecordView recordView;
+    private RecordViewLine recordView;
     private RecordManager manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_record2);
-        recordView = (RecordView) findViewById(R.id.recordView);
+        setContentView(R.layout.activity_record_line);
+        recordView = (RecordViewLine) findViewById(R.id.recordView);
         manager = new RecordManager(new File(getExternalCacheDir().getPath()+"/"+System.currentTimeMillis()+".amr"));
         manager.setOnVolume(new RecordManager.OnVolume() {
             @Override

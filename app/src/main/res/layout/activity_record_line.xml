@@ -6,7 +6,7 @@
     android:orientation="vertical"
     tools:context=".Record2Activity">
 
-    <com.wangpos.soundrecordview.View.RecordView
+    <com.wangpos.soundrecordview.View.RecordViewLine
         android:id="@+id/recordView"
         android:layout_width="match_parent"
         android:layout_height="400dp" />

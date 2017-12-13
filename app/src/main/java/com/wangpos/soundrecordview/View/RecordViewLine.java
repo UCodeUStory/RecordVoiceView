@@ -1,11 +1,37 @@
-package com.wangpos.soundrecordview;
+package com.wangpos.soundrecordview.View;
+
+/**
+ * Created by qiyue on 2017/12/13.
+ */
 
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.util.Log;
+
+import com.wangpos.soundrecordview.CustomSurfaceView;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.util.AttributeSet;
+import android.util.Log;
+
+import com.wangpos.soundrecordview.CustomSurfaceView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +42,7 @@ import java.util.Map;
  * Created by Allen on 2017/9/18.
  */
 
-public class RecordView extends CustomSurfaceView {
+public class RecordViewLine extends CustomSurfaceView {
 
     private static final String TAG = "RecordView";
 
@@ -37,32 +63,50 @@ public class RecordView extends CustomSurfaceView {
     private float mCenterY;
 
     /**
-     * 点数
+     * 点数,当然越多越细腻
      */
-    private int pointSize = 180;
+    private int pointSize = 200;
     /**
      * 声音分贝数
      */
     private float volume = 1;
 
+
     /**
-     * 振幅系数
+     * 速度
      */
+    private float velocity = 1;
 
-    private float shakeRatio = 3f;
+    /**
+     * 默认线的初始化振幅
+     */
+    private float[] shakeRatioArray = {1.5f,2.5f,1.5f};
 
-    //保存4条线的Y坐标
-    Map<Float, float[]> linesY = new HashMap<>();
+    /**
+     * 默认线的偏移量
+     */
+    private float[] lineOffset = {0f,1.5f,3f};
 
-    public RecordView(Context context) {
+    /**
+     * 默认颜色
+     */
+//    private int[] lineColor = {0xa060ffff,0x2238f5c3,0xABF3FF00};
+
+    private int[] lineColor = {0xffff0000,0xff00ff00,0xff0000ff};
+    /**
+     * 线的集合
+     */
+    Map<Integer, List<Point>> lines = new HashMap<>();
+
+    public RecordViewLine(Context context) {
         this(context, null);
     }
 
-    public RecordView(Context context, AttributeSet attrs) {
+    public RecordViewLine(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public RecordView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public RecordViewLine(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         initAttrs(attrs);
         initPaint();
@@ -86,14 +130,18 @@ public class RecordView extends CustomSurfaceView {
         mMainPaint.setStrokeWidth(mMainWidth);
         mMainPaint.setStyle(Paint.Style.FILL);
         mMainPaint.setAntiAlias(true);
+        mMainPaint.setStrokeCap(Paint.Cap.ROUND);
+        mMainPaint.setStrokeJoin(Paint.Join.ROUND);
+
+
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     public void drawContent(Canvas canvas, long millisPassed) {
         initDraw(canvas, millisPassed);
         drawLine(canvas);
     }
-
 
 
     /**
@@ -103,34 +151,46 @@ public class RecordView extends CustomSurfaceView {
      * @param millisPassed
      */
     private void initDraw(Canvas canvas, long millisPassed) {
-
+        lines.clear();
         //根据时间偏移
-        float offset = millisPassed / 100f;
-        points.clear();
+        float offset = millisPassed / 100f * velocity;
         mWidth = canvas.getWidth();
         mHeight = canvas.getHeight();
         mCenterY = mHeight / 2;
         float dx = (float) mWidth / (pointSize - 1);// 必须为float，否则丢失
         Log.i("qiyue", "dx = " + dx + "offset=" + offset);
-        for (int i = 0; i < pointSize; i++) {
 
-            float y;
-            float x = dx * i;
-            float adapterShakeParam;
-
-            adapterShakeParam = convergenFunction(i);
-            Log.i("qiyue","adapterShakeParam="+adapterShakeParam);
-
-            y = calculateY(x, offset,adapterShakeParam,shakeRatio);
-
-
-            points.add(new Point(x, y));
+        for (int j = 0; j < shakeRatioArray.length; j++) {
+            List<Point>points = new ArrayList<>();
+            initLine(offset, dx, shakeRatioArray[j], points,lineOffset[j]);
+            lines.put(j,points);
         }
+
 
     }
 
     /**
+     * 初始化一条线
+     * @param offset
+     * @param dx
+     * @param shakeRatio
+     * @param points
+     */
+    private void initLine(float offset, float dx, float shakeRatio, List<Point> points,float lOffset) {
+        for (int i = 0; i < pointSize; i++) {
+            float y;
+            float x = dx * i;
+            float adapterShakeParam;
+            adapterShakeParam = convergenFunction(i);
+            Log.i("qiyue", "adapterShakeParam=" + adapterShakeParam);
+            y = calculateY(x, offset, adapterShakeParam, shakeRatio,lOffset);
+            points.add(new Point(x, y));
+        }
+    }
+
+    /**
      * 收敛函数  这个函数可以用一个二次函数，效果更好
+     *
      * @param i
      * @return
      */
@@ -147,22 +207,47 @@ public class RecordView extends CustomSurfaceView {
     }
 
     /**
-     * 想让每个点成sin周期性变化,把x坐标当成角度，
-     */
-    /**
      * 画线
      *
      * @param canvas
      */
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void drawLine(Canvas canvas) {
         canvas.drawColor(mBgColor);
         Log.i("qiyue", "drawLine");
-        for (int i = 1; i < pointSize; i++) {
-            Point p1 = points.get(i - 1);
-            Point p2 = points.get(i);
-            Log.i("qiyue", "p1=" + p1);
-            canvas.drawLine(p1.x, p1.y, p2.x, p2.y, mMainPaint);
+
+        List<Path>paths = new ArrayList<>();
+
+        List<Path>paths2 = new ArrayList<>();
+
+        for (Integer key:lines.keySet()){
+            mMainPaint.setColor(lineColor[key]);
+            List<Point>points = lines.get(key);
+
+            Path path = new Path();
+            path.moveTo(0,mHeight);
+            for (int i = 1;i<pointSize;i++) {
+                Point p = points.get(i);
+                path.lineTo(p.x,p.y);
+            }
+            path.lineTo(mWidth,mHeight);
+            path.close();
+
+            paths.add(path);
+
+
+            for (int i = 1; i < pointSize; i++) {
+                Point p1 = points.get(i - 1);
+                Point p2 = points.get(i);
+                Log.i("qiyue", "p1=" + p1);
+
+                canvas.drawLine(p1.x, p1.y, p2.x, p2.y, mMainPaint);
+            }
         }
+
+
+
+
 
     }
 
@@ -202,12 +287,12 @@ public class RecordView extends CustomSurfaceView {
      * @param offset 偏移量
      * @return
      */
-    private float calculateY(float x, float offset,float adapterShakeParam,float shakeRatio) {
+    private float calculateY(float x, float offset, float adapterShakeParam, float shakeRatio,float lOffset) {
 
         /**
          * 弧度取值范围 0 2π
          */
-        double rad = Math.toRadians(x);
+        double rad = Math.toRadians(x) + lOffset;
 
         double fx = Math.sin(rad + offset);
 
@@ -223,13 +308,13 @@ public class RecordView extends CustomSurfaceView {
 
     /**
      * 声音分贝计算
+     *
      * @return
      */
     private float getCalculateVolume() {
-        return (volume + 10) / 20f;
+        return (volume +10) / 20f;
     }
 
-    private List<Point> points = new ArrayList<>();
 
     /**
      * 绘制点Bean
@@ -252,8 +337,6 @@ public class RecordView extends CustomSurfaceView {
         }
 
     }
-
-
 
 
 }

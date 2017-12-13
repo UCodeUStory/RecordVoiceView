@@ -8,7 +8,7 @@
     tools:context="com.wangpos.soundrecordview.SoundRecordActivity">
 
     
-    <com.wangpos.soundrecordview.SoundRecordView
+    <com.wangpos.soundrecordview.View.SoundRecordView
         android:id="@+id/srv"
         android:layout_width="match_parent"
         android:layout_height="400dp" />

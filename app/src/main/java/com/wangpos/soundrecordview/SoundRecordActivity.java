@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.wangpos.soundrecordview.View.SoundRecordView;
+
 import java.util.Random;
 
 public class SoundRecordActivity extends AppCompatActivity {

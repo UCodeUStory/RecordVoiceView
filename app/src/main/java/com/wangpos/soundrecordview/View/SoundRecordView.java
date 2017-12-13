@@ -1,4 +1,4 @@
-package com.wangpos.soundrecordview;
+package com.wangpos.soundrecordview.View;
 
 import android.content.Context;
 import android.graphics.Canvas;
