@@ -1,16 +1,16 @@
 # 录音波纹控件
 
 
-## iphone录音效果
+## *模仿iphone录音效果*
 <img src="https://github.com/UCodeUStory/RecordVoiceView/blob/master/rvv.gif" width="260x">
 
-## 小米录音效果
+## *模仿小米录音效果*
 <img src="https://github.com/UCodeUStory/RecordVoiceView/blob/master/record2.gif" width="260x">
 
 <img src="https://github.com/UCodeUStory/RecordVoiceView/blob/master/lineRecord.gif" width="260x">
 
 
-## 模仿 小米 录音界面实现方法
+## 小米录音界面实现详解
 
 ### 分析特点
 
